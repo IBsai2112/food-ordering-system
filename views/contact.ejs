@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+<div style="position: relative; width: 100vw; margin-left: calc(-50vw + 50%); margin-top: -1.5rem; margin-bottom: 0; padding: 3rem 0; background-image: url('/images/aboutBg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: calc(100vh - 150px);">
+  <div class="container" style="padding: 0 15px;">
+    <div style="background-color: rgba(255, 255, 255, 0.65); padding: 2rem; border-radius: 0.5rem;">
+      <h2 class="mb-4">Contact Us</h2>
+
+      <% if (typeof success !== 'undefined' && success) { %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          Thank you for contacting us! We'll get back to you soon.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% } %>
+
+      <form action="/contact" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
+
